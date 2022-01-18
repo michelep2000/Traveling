@@ -5,4 +5,6 @@
     <string name="next">Next</string>
     <string name="traveling_description">Hola, estamos buscando a millones de usuarios con inquietudes y ganas de viajar. Si eres tu?No lo dudes accede a nuestra app y descubriras miles de destinos y facilidades para alquilar coches, ver el tiempo....</string>
     <string name="traveling_title">Tu app de viajes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
