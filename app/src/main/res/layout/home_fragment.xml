@@ -25,7 +25,7 @@
 
             <!--     #CBE3FF, ECDDFF, FFDBF5, -->
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/appCompatTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,11 +39,9 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"/>
 
-            </androidx.appcompat.widget.AppCompatTextView>
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,17 +57,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/icon_camera"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/icon_camera"
                     android:src="@drawable/round_camera_alt_black_36dp" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,17 +79,17 @@
                 app:layout_constraintEnd_toStartOf="@+id/card_mountain"
                 app:layout_constraintStart_toEndOf="@+id/card_camera"
                 app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" >
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/icon_heart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/round_favorite_black_36dp"
                     android:contentDescription="@string/icon_heart" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_mountain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,16 +103,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
                 >
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/icon_mountain"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/round_forest_black_36dp"
                     android:contentDescription="@string/icon_mountain" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,17 +126,17 @@
                 app:layout_constraintStart_toEndOf="@+id/card_mountain"
                 app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/icon_person"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/icon_person"
                     android:src="@drawable/round_face_black_36dp" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/calendar_img"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -167,7 +165,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/appCompatTextView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -177,11 +175,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/calendar_img"
-                        app:layout_constraintVertical_bias="0.16000003">
+                        app:layout_constraintVertical_bias="0.16000003"/>
 
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/appCompatTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -195,15 +191,14 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
-                        app:layout_constraintVertical_bias="0.19999999">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
+                        app:layout_constraintVertical_bias="0.19999999"/>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/beach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -222,7 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/outside_img"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -234,7 +229,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/appCompatTextView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -244,11 +239,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/outside_img"
-                        app:layout_constraintVertical_bias="0.16000003">
+                        app:layout_constraintVertical_bias="0.16000003"/>
 
-                    </androidx.appcompat.widget.AppCompatTextView>
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/appCompatTextView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -262,13 +256,11 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4"
-                        app:layout_constraintVertical_bias="0.19999999">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
+                        app:layout_constraintVertical_bias="0.19999999"/>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
