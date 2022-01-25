@@ -1,12 +1,8 @@
 package es.travelworld.traveling;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
