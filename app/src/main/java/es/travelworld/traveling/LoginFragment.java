@@ -38,7 +38,7 @@ public class LoginFragment extends Fragment {
 
     private void setListeners() {
         binding.materialTextView2Btn.setOnClickListener(view1 -> Snackbar.make(view1, getString(R.string.get_new_description), Snackbar.LENGTH_LONG).show());
-        binding.materialTextView3Btn.setOnClickListener(view1 -> Snackbar.make(view1, getString(R.string.create_new_description), Snackbar.LENGTH_SHORT).show());
+        binding.materialTextView3Btn.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_registerFragment));
         binding.loginButton.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_onboardingFragment));
     }
 }

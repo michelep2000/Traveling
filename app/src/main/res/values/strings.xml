@@ -24,4 +24,16 @@
     <string name="password">Password</string>
     <string name="create_new_description">Proximamente se podra crear una cuenta</string>
     <string name="get_new_description">Proximamente se podra cambiar la contraseña</string>
+    <string name="como_te_llamas">¿Como te llamas?</string>
+    <string name="y_tu_apellido">¿Y tu apellido?</string>
+    <string name="edad_tienes">¿Cuantos años tienes?</string>
+
+    <string-array name="years">
+        0-5/6-11/12-17/18-99
+        <item>0–5</item>
+        <item>6–11</item>
+        <item>12–17</item>
+        <item>18–99</item>
+    </string-array>
+
 </resources>
