@@ -8,14 +8,54 @@
     tools:context=".RegisterFragment">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rlHeaderMain"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="#009688"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/go_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/round_arrow_back_black_24dp"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="32dp"
+            android:text="@string/registro"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/go_back"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_profile_img"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginTop="32dp"
         app:cardCornerRadius="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/rlHeaderMain">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_profile"
@@ -27,7 +67,7 @@
             android:foregroundGravity="bottom|center_horizontal"
             android:foregroundTint="#FFFFFF"
             android:scaleType="centerCrop"
-            android:src="@drawable/register_img"/>
+            android:src="@drawable/register_img" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -36,20 +76,20 @@
         android:id="@+id/name_inputlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-        android:layout_marginStart="32dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_register"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="#D1EEE6"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
         app:boxStrokeWidth="2dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_profile_img">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,20 +106,20 @@
         android:id="@+id/lastname_inputlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-        android:layout_marginStart="32dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_register"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="#D1EEE6"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
         app:boxStrokeWidth="2dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_inputlayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastname_input"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,12 +133,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_register"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="#D1EEE6"
         app:boxCornerRadiusBottomEnd="0dp"
         app:boxCornerRadiusBottomStart="0dp"
@@ -107,12 +147,13 @@
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidth="2dp"
         app:endIconDrawable="@drawable/round_keyboard_arrow_down_black_24dp"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastname_inputlayout">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/autoComplete"
+            android:id="@+id/years_dropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -124,8 +165,47 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_register"
+        android:background="@drawable/selector_button_register"
+        android:paddingHorizontal="40dp"
+        android:text="@string/me_apunto"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/termsAndConditionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/politica_de_privacidad"
+        android:textColor="#707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seeConditionsBtn"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_btn" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/seeConditionsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ver_condiciones"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/termsAndConditionsTextView"
+        app:layout_constraintTop_toTopOf="@+id/termsAndConditionsTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

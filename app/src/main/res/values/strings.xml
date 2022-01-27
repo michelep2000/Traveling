@@ -27,6 +27,12 @@
     <string name="como_te_llamas">¿Como te llamas?</string>
     <string name="y_tu_apellido">¿Y tu apellido?</string>
     <string name="edad_tienes">¿Cuantos años tienes?</string>
+    <string name="error_name_lastname">Ups, no creo que sea correcto, revísalo</string>
+    <string name="app_not_for_you">Esta app no es para ti</string>
+    <string name="me_apunto">Me apunto</string>
+    <string name="politica_de_privacidad">Política de privacidad</string>
+    <string name="ver_condiciones">Ver condiciones</string>
+    <string name="registro">Registro</string>
 
     <string-array name="years">
         0-5/6-11/12-17/18-99

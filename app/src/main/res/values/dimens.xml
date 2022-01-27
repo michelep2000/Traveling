@@ -2,4 +2,5 @@
 <resources>
     <dimen name="margin_horizontal_main">24dp</dimen>
     <dimen name="margin_horizontal_home">16dp</dimen>
+    <dimen name="margin_horizontal_register">32dp</dimen>
 </resources>
