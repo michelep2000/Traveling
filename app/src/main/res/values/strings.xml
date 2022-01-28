@@ -33,6 +33,7 @@
     <string name="politica_de_privacidad">Política de privacidad</string>
     <string name="ver_condiciones">Ver condiciones</string>
     <string name="registro">Registro</string>
+    <string name="error_login">usuario y/o contraseña inconrrectos</string>
 
     <string-array name="years">
         0-5/6-11/12-17/18-99

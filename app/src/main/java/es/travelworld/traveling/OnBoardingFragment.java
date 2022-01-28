@@ -29,6 +29,6 @@ public class OnBoardingFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.textViewNext.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingFragment_to_homeFragment));
+       // binding.textViewNext.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingFragment_to_homeFragment));
     }
 }

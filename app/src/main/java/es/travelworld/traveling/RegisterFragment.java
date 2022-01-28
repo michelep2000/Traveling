@@ -11,11 +11,14 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,9 +66,7 @@ public class RegisterFragment extends Fragment {
 
         Editable name = binding.nameInput.getText();
         Editable lastName = binding.lastnameInput.getText();
-        if (name == null && lastName == null) return;
-
-        assert name != null && lastName != null;
+        if (name == null || lastName == null) return;
 
         boolean isNameIncorrectFormatted = name.toString().contains("!") || name.toString().contains("@");
         boolean isLastNameIncorrectFormatted = lastName.toString().contains("!") || lastName.toString().contains("@");
@@ -115,7 +116,22 @@ public class RegisterFragment extends Fragment {
         binding.goBack.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment));
         binding.imgProfile.setOnClickListener(view -> openCamera());
         binding.seeConditionsBtn.setOnClickListener(view -> openWeb());
+
+        binding.registerBtn.setOnClickListener(this::setArgumentsToNavigate);
+
         setTextViewListeners();
+    }
+
+    private void setArgumentsToNavigate(View view) {
+        Editable name = binding.nameInput.getText();
+        Editable lastName = binding.lastnameInput.getText();
+        if (name == null || lastName == null) return;
+
+        Bundle args = new Bundle();
+        args.putString("username", name.toString());
+        args.putString("password", lastName.toString());
+
+        Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment, args);
     }
 
     private void setTextViewListeners() {

@@ -1,13 +1,11 @@
 package es.travelworld.traveling;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +19,8 @@ import es.travelworld.traveling.databinding.LoginFragmentBinding;
 public class LoginFragment extends Fragment {
 
     private LoginFragmentBinding binding;
+    private String registerUsername;
+    private String registerPassword;
 
 
     @Override
@@ -34,6 +34,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setListeners();
+        getRegisterArgs();
     }
 
     @Override
@@ -42,9 +43,87 @@ public class LoginFragment extends Fragment {
         binding = null;
     }
 
-    private void setListeners() {
-        binding.materialTextView2Btn.setOnClickListener(view1 -> Snackbar.make(view1, getString(R.string.get_new_description), Snackbar.LENGTH_LONG).show());
-        binding.materialTextView3Btn.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_registerFragment));
-        binding.loginButton.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_onboardingFragment));
+    private boolean isCorrectAuth(boolean isToHandleButton) {
+        Editable username = binding.usernameInput.getText();
+        Editable password = binding.passwordInput.getText();
+
+        if (username == null || password == null) return false;
+
+        binding.loginButton.setEnabled((username.length() > 0 && password.length() > 0));
+
+        boolean isCorrect = username.toString().equals(registerUsername) && password.toString().equals(registerPassword);
+
+        if (!isCorrect && !isToHandleButton)
+            binding.usernameInput.setError(getString(R.string.error_login));
+
+        return isCorrect;
     }
+
+    private void getRegisterArgs() {
+        Bundle args = getArguments();
+        if (args == null) return;
+
+        registerUsername = args.getString("username");
+        registerPassword = args.getString("password");
+
+
+    }
+
+    private void setListeners() {
+        binding.materialTextView2Btn.setOnClickListener(view -> Snackbar.make(view, getString(R.string.get_new_description), Snackbar.LENGTH_LONG).show());
+        binding.materialTextView3Btn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment));
+
+        binding.loginButton.setOnClickListener(view -> {
+            if (isCorrectAuth(false)) setArgumentsTuNavigate(view);
+        });
+
+        setTextViewListeners();
+
+    }
+
+    private void setArgumentsTuNavigate(View view) {
+        Bundle args = new Bundle();
+        args.putString("username", registerUsername);
+        args.putString("password", registerPassword);
+        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment, args);
+    }
+
+    private void setTextViewListeners() {
+
+        binding.usernameInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                isCorrectAuth(true);
+            }
+        });
+
+        binding.passwordInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                isCorrectAuth(true);
+            }
+        });
+
+    }
+
 }
