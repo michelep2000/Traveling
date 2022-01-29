@@ -23,6 +23,9 @@ public class HomeFragment extends Fragment {
         Bundle args = getArguments();
         if (args == null) return;
 
+        //Ya van 3 lugares donde utilizamos la misma key, jeje.
+        //PREGUNTA => Si haces unas acciones en más de un lugar no se podría crear
+        //un método que se utilize en dichos lugares. Dale una vuelta.
         String loginUsername = args.getString("username");
         String loginPassword = args.getString("password");
 
