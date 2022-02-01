@@ -10,19 +10,22 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+
+import com.google.android.material.appbar.MaterialToolbar;
 
 import es.travelworld.traveling.databinding.RegisterFragmentBinding;
 
@@ -42,12 +45,13 @@ public class RegisterFragment extends Fragment {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(requireContext(), R.layout.dorpdown_item, ages);
         binding.yearsDropdown.setAdapter(arrayAdapter);
 
+        setToolBar();
         setCameraResultLauncher();
         handleButtonByTextFieldLogic();
 
+
         return binding.getRoot();
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -61,6 +65,12 @@ public class RegisterFragment extends Fragment {
         binding = null;
     }
 
+    private void setToolBar() {
+        MaterialToolbar toolbar = binding.registerToolbar;
+        toolbar.setNavigationIcon(R.drawable.round_arrow_back_black_24dp);
+        toolbar.setNavigationIconTint(ContextCompat.getColor(getContext(), R.color.white));
+        toolbar.setNavigationOnClickListener(view -> getActivity().onBackPressed());
+    }
 
     private void handleButtonByTextFieldLogic() {
 
@@ -107,13 +117,12 @@ public class RegisterFragment extends Fragment {
 
     private void handleDropdownErrors() {
         Editable dropdownText = binding.yearsDropdown.getText();
-        if(!dropdownText.toString().contains("18")){
+        if (!dropdownText.toString().contains("18")) {
             binding.yearsDropdown.setError(getString(R.string.app_not_for_you));
         }
     }
 
     private void setListeners() {
-        binding.goBack.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment));
         binding.imgProfile.setOnClickListener(view -> openCamera());
         binding.seeConditionsBtn.setOnClickListener(view -> openWeb());
 

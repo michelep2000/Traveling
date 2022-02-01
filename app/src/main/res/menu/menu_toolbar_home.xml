@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/castle"
+        android:icon="@drawable/round_castle_white_24dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/eurodisney"/>
+
+    <item android:id="@+id/car"
+        android:icon="@drawable/round_directions_car_white_24dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/alquila_un_coche"/>
+
+</menu>

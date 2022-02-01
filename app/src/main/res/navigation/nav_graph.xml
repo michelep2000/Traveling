@@ -14,7 +14,11 @@
         android:id="@+id/homeFragment"
         android:name="es.travelworld.traveling.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_lilaFragment"
+            app:destination="@id/lilaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="es.travelworld.traveling.LoginFragment"
@@ -36,4 +40,9 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/lilaFragment"
+        android:name="es.travelworld.traveling.LilaFragment"
+        android:label="fragment_lila"
+        tools:layout="@layout/fragment_lila" />
 </navigation>

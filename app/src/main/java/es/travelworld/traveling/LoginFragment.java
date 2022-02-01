@@ -35,6 +35,7 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setListeners();
         getRegisterArgs();
+        binding.loginButton.setEnabled(true);//TODO: delete line
     }
 
     @Override
@@ -74,7 +75,7 @@ public class LoginFragment extends Fragment {
         binding.materialTextView3Btn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment));
 
         binding.loginButton.setOnClickListener(view -> {
-            if (isCorrectAuth(false)) setArgumentsTuNavigate(view);
+            /*if (isCorrectAuth(false))*/ setArgumentsTuNavigate(view); //TODO: delete comment
         });
 
         setTextViewListeners();

@@ -34,6 +34,8 @@
     <string name="ver_condiciones">Ver condiciones</string>
     <string name="registro">Registro</string>
     <string name="error_login">usuario y/o contraseña inconrrectos</string>
+    <string name="eurodisney">Eurodisney</string>
+    <string name="alquila_un_coche">Alquila un coche</string>
 
     <string-array name="years">
         0-5/6-11/12-17/18-99
@@ -42,5 +44,7 @@
         <item>12–17</item>
         <item>18–99</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
