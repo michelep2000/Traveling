@@ -83,7 +83,7 @@ public class RegisterFragment extends Fragment {
         boolean isButtonEnabled = (binding.nameInput.length() > 0 && binding.lastnameInput.length() > 0) && (!isLastNameIncorrectFormatted && !isNameIncorrectFormatted);
 
         if (isNameIncorrectFormatted)
-            binding.nameInput.setError(getString(R.string.error_name_lastname));
+            binding.nameInputlayout.setError(getString(R.string.error_name_lastname));
 
         if (isLastNameIncorrectFormatted)
             binding.lastnameInput.setError(getString(R.string.error_name_lastname));

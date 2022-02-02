@@ -20,9 +20,12 @@ import es.travelworld.traveling.databinding.LoginFragmentBinding;
 
 public class LoginFragment extends Fragment {
 
+    public static final String KEY_USERNAME = "username";
+
     private LoginFragmentBinding binding;
     private String registerUsername;
     private String registerPassword;
+
 
 
     @Override
@@ -65,7 +68,11 @@ public class LoginFragment extends Fragment {
         Bundle args = getArguments();
         if (args == null) return;
 
-        registerUsername = args.getString("username");
+        //Vale te estas adelantando y ya pones NAVIGATION, pero no se puede hardcodear las keys.
+        //Todo aquel identificador que se utilize en mas de 2 lugaes, es recomendable que sea una constante estatica o se guarde en recurso de string
+        // prefiero la estatíca.
+        //TODO: pendiente de realizarlo en el resto
+        registerUsername = args.getString(KEY_USERNAME);
         registerPassword = args.getString("password");
 
 
@@ -101,12 +108,13 @@ public class LoginFragment extends Fragment {
         binding.usernameInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                //En los metodos no implementados de los listener y por convención de quality code poner //no-opt o poner //not yet implemented
+                //not yet implemented
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                //not yet implemented
             }
 
             @Override
@@ -118,12 +126,12 @@ public class LoginFragment extends Fragment {
         binding.passwordInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                //not yet implemented
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                //not yet implemented
             }
 
             @Override
