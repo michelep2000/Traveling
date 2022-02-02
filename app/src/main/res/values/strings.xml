@@ -46,5 +46,7 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="entendido">ENTENDIDO</string>
+    <string name="wrong_auth_dialog_text">Usuario y/o contraseña incorrectos, por favor verifique los datos</string>
 
 </resources>

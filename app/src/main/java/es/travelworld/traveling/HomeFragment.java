@@ -22,6 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.Snackbar;
 
 import es.travelworld.traveling.databinding.HomeFragmentBinding;
 
@@ -51,19 +52,16 @@ public class HomeFragment extends Fragment {
         toolbar.setNavigationIcon(R.drawable.round_menu_black_24dp);
         toolbar.setNavigationIconTint(ContextCompat.getColor(getContext(), R.color.white));
 
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
+        toolbar.setOnMenuItemClickListener(item -> {
 
-                int itemId = item.getItemId();
+            int itemId = item.getItemId();
 
-                if (itemId == R.id.castle) {
-                    openWeb();
-                } else if (itemId == R.id.car) {
-                    NavHostFragment.findNavController(homeFragment).navigate(R.id.action_homeFragment_to_lilaFragment);
-                }
-                return false;
+            if (itemId == R.id.castle) {
+                openWeb();
+            } else if (itemId == R.id.car) {
+                NavHostFragment.findNavController(homeFragment).navigate(R.id.action_homeFragment_to_lilaFragment);
             }
+            return false;
         });
     }
 
@@ -79,9 +77,10 @@ public class HomeFragment extends Fragment {
 
         String loginUsername = args.getString("username");
         String loginPassword = args.getString("password");
+        String usr = "USR: " + loginUsername + " ";
+        String pwd = "PWD: " + loginPassword;
 
-        Log.i("HomeFragment", "USR: " + loginUsername);
-        Log.i("HomeFragment", "PWD: " + loginPassword);
+        Snackbar.make(binding.getRoot(), usr+ pwd, Snackbar.LENGTH_LONG).show();
 
     }
 }

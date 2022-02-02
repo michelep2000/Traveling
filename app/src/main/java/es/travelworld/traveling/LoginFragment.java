@@ -1,5 +1,7 @@
 package es.travelworld.traveling;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,7 +37,6 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setListeners();
         getRegisterArgs();
-        binding.loginButton.setEnabled(true);
     }
 
     @Override
@@ -76,6 +77,12 @@ public class LoginFragment extends Fragment {
 
         binding.loginButton.setOnClickListener(view -> {
             if (isCorrectAuth(false)) setArgumentsTuNavigate(view);
+            else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage(R.string.wrong_auth_dialog_text).setPositiveButton(R.string.entendido, (dialog, id)->{}).show();
+
+            }
+
         });
 
         setTextViewListeners();
