@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="es.travelworld.traveling.OnBoardingFragment"
+        android:name="es.travelworld.traveling.onboarding.OnboardingOneFragment"
         android:label="onboarding_fragment"
-        tools:layout="@layout/onboarding_fragment" />
+        tools:layout="@layout/onboarding_one_fragment" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="es.travelworld.traveling.HomeFragment"
@@ -45,4 +45,14 @@
         android:name="es.travelworld.traveling.LilaFragment"
         android:label="fragment_lila"
         tools:layout="@layout/fragment_lila" />
+    <fragment
+        android:id="@+id/onboardingTwoFragment"
+        android:name="es.travelworld.traveling.onboarding.OnboardingTwoFragment"
+        android:label="onboarding_two_fragment"
+        tools:layout="@layout/onboarding_two_fragment" />
+    <fragment
+        android:id="@+id/onboardingThreeFragment"
+        android:name="es.travelworld.traveling.onboarding.OnboardingThreeFragment"
+        android:label="onboarding_three_fragment"
+        tools:layout="@layout/onboarding_three_fragment" />
 </navigation>

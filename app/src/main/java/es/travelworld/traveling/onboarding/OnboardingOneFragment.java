@@ -1,4 +1,4 @@
-package es.travelworld.traveling;
+package es.travelworld.traveling.onboarding;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-import es.travelworld.traveling.databinding.OnboardingFragmentBinding;
 
-public class OnBoardingFragment extends Fragment {
+import es.travelworld.traveling.databinding.OnboardingOneFragmentBinding;
 
-    private OnboardingFragmentBinding binding;
+
+public class OnboardingOneFragment extends Fragment {
+
+    private OnboardingOneFragmentBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       binding = OnboardingFragmentBinding.inflate(inflater, container, false);
+       binding = OnboardingOneFragmentBinding.inflate(inflater, container, false);
        return binding.getRoot();
     }
 

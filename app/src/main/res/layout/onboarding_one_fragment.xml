@@ -9,7 +9,7 @@
     android:backgroundTint="#313131"
     android:visibility="visible"
     app:flow_wrapMode="none"
-    tools:context=".OnBoardingFragment">
+    tools:context=".onboarding.OnboardingOneFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewNext"

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fee2d3"
+    tools:context=".onboarding.OnboardingTwoFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/onboardingTwoTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:text="Find Your Match!"
+        android:textAlignment="gravity"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/onboardingTwoDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:lineSpacingExtra="8sp"
+        android:text="We've helped millions across the nation find their perfect match... and you're next!"
+        android:textColor="#7E7E7E"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTwoTitle"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/onboardingTwoImg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/onboarding_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTwoDescription"
+        app:layout_constraintVertical_bias="0.3" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/skipBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        app:strokeColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="10dp"
+        android:padding="15dp"
+        android:text="Skip"
+        android:textAllCaps="false"
+        android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:backgroundTint="#fee2d3"
+        app:layout_constraintEnd_toStartOf="@+id/nextBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTwoImg" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/nextBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="10dp"
+        android:enabled="false"
+        android:padding="15dp"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/skipBtn"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingTwoImg" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
