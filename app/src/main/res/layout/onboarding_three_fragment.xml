@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#cae2ff"
     tools:context=".onboarding.OnboardingThreeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/onboardingThreeTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:text="Find the Perfect Roommate"
+        android:textAlignment="gravity"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/onboardingThreeDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:lineSpacingExtra="8sp"
+        android:text="We've helped millions across the nation find their perfect match... and you're next!"
+        android:textColor="#7E7E7E"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingThreeTitle"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/onboardingThreeImg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/onboarding_three"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingThreeDescription"
+        app:layout_constraintVertical_bias="0.3" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/skipBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_main"
+        app:iconGravity="textEnd"
+        app:icon="@drawable/round_keyboard_arrow_down_black_24dp"
+        app:iconSize="16dp"
+        app:iconTint="@color/black"
+        android:text="Log in"
+        android:textAllCaps="false"
+        android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingThreeImg"
+        app:strokeColor="@color/black" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
