@@ -11,4 +11,8 @@
     <color name="grey">#B5B5B5</color>
     <color name="toolbar">#009688</color>
     <color name="lila">#B695C0</color>
+    <color name="homeTabZero">#cae2ff</color>
+    <color name="homeTabOne">#ebdcff</color>
+    <color name="homeTabTwo">#ffdaf6</color>
+    <color name="homeTabThree">#fff3ab</color>
 </resources>

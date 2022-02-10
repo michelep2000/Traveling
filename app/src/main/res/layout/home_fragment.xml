@@ -8,277 +8,42 @@
     app:flow_wrapMode="none"
     tools:context=".HomeFragment">
 
-    <ScrollView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/home_appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/home_toolbar"
+            app:title="Home"
+            app:menu="@menu/menu_toolbar_home"
+            app:titleTextColor="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/home_appbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/home_toolbar"
-                    app:title="Home"
-                    app:menu="@menu/menu_toolbar_home"
-                    app:titleTextColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_appbar" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/appCompatTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                android:layout_marginTop="8dp"
-                android:gravity="start"
-                android:text="@string/upcoming_meetups"
-                android:textAlignment="textStart"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_appbar"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerHome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabBarLayout"/>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_camera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_horizontal_home"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                app:cardBackgroundColor="#FFDBF5"
-                app:cardCornerRadius="10dp"
-                app:contentPadding="20dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toStartOf="@+id/card_heart"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/icon_camera"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/icon_camera"
-                    android:src="@drawable/round_camera_alt_black_36dp" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_heart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:contentPadding="20dp"
-                app:cardCornerRadius="10dp"
-                app:cardBackgroundColor="#ECDDFF"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toStartOf="@+id/card_mountain"
-                app:layout_constraintStart_toEndOf="@+id/card_camera"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" >
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/icon_heart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/round_favorite_black_36dp"
-                    android:contentDescription="@string/icon_heart" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_mountain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:contentPadding="20dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp"
-                app:cardBackgroundColor="#CBE3FF"
-                app:layout_constraintEnd_toStartOf="@+id/card_person"
-                app:layout_constraintStart_toEndOf="@+id/card_heart"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
-                >
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/icon_mountain"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/round_forest_black_36dp"
-                    android:contentDescription="@string/icon_mountain" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_person"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/margin_horizontal_home"
-                app:cardBackgroundColor="#FFF2AE"
-                app:cardCornerRadius="10dp"
-                app:contentPadding="20dp"
-                app:cardElevation="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/card_mountain"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/icon_person"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/icon_person"
-                    android:src="@drawable/round_face_black_36dp" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/city"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_camera"
-                app:layout_constraintVertical_bias="0.05">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/calendar_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/calendar_img"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/calendar_img"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/appCompatTextView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                        android:text="@string/usa_los_angeles_2_weeks"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/calendar_img"
-                        app:layout_constraintVertical_bias="0.16000003"/>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/appCompatTextView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/city_of_los_angeles"
-                        android:textColor="#000000"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
-                        app:layout_constraintVertical_bias="0.19999999"/>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/beach"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/city">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/outside_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/outside_img"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/outside_img"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.666"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/appCompatTextView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                        android:text="@string/maldives_3_weeks"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/outside_img"
-                        app:layout_constraintVertical_bias="0.16000003"/>
-
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/appCompatTextView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin_horizontal_home"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/beach_vacation"
-                        android:textColor="#000000"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4"
-                        app:layout_constraintVertical_bias="0.19999999"/>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </ScrollView>
 
 
 

@@ -20,9 +20,12 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import es.travelworld.traveling.databinding.HomeFragmentBinding;
 
@@ -36,14 +39,70 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = es.travelworld.traveling.databinding.HomeFragmentBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setToolBar(this);
         getRegisterArgs();
+        setListeners();
+        setToolBar(this);
+        setTabBarLayout();
+    }
+
+    private void setTabBarLayout() {
+        PageAdapterHome adapterHome = new PageAdapterHome(getActivity());
+        binding.viewPagerHome.setAdapter(adapterHome);
+
+        new TabLayoutMediator(binding.tabBarLayout, binding.viewPagerHome, ((tab, position) -> {
+
+            int tabIconColor = ContextCompat.getColor(getContext(), R.color.black);
+
+            switch (position) {
+                case 0:
+                    tab.view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.homeTabZero));
+                    tab.setIcon(R.drawable.round_camera_alt_black_36dp);
+                    break;
+                case 1:
+                    tab.view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.homeTabOne));
+                    tab.setIcon(R.drawable.round_directions_car_black_36dp);
+                    break;
+                case 2:
+                    tab.view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.homeTabTwo));
+                    tab.setIcon(R.drawable.round_forest_black_36dp);
+                    break;
+                case 3:
+                    tab.view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.homeTabThree));
+                    tab.setIcon(R.drawable.round_face_black_36dp);
+                    break;
+            }
+
+            tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+
+        })).attach();
+    }
+
+    private void setListeners() {
+        binding.tabBarLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int tabIconColor = ContextCompat.getColor(getContext(), R.color.white);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                int tabIconColor = ContextCompat.getColor(getContext(), R.color.black);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
 
@@ -80,7 +139,7 @@ public class HomeFragment extends Fragment {
         String usr = "USR: " + loginUsername + " ";
         String pwd = "PWD: " + loginPassword;
 
-        Snackbar.make(binding.getRoot(), usr+ pwd, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(binding.getRoot(), usr + pwd, Snackbar.LENGTH_LONG).show();
 
     }
 }
