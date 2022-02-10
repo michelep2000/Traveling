@@ -11,6 +11,7 @@
     app:flow_wrapMode="none"
     tools:context=".onboarding.OnboardingOneFragment">
 
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewNext"
         android:layout_width="match_parent"
