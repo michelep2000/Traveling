@@ -38,6 +38,6 @@ public class OnboardingThreeFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.loginBtn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingThreeFragment_to_loginFragment));
+        binding.loginBtn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingFragment_to_loginFragment));
     }
 }

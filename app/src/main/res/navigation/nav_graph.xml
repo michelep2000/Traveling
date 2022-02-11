@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/onboardingFragment">
 
     <fragment
-        android:id="@+id/onboardingFragment"
+        android:id="@+id/onboardingOneFragment"
         android:name="es.travelworld.traveling.onboarding.OnboardingOneFragment"
         android:label="onboarding_fragment"
         tools:layout="@layout/onboarding_one_fragment" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="es.travelworld.traveling.HomeFragment"
+        android:name="es.travelworld.traveling.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
         <action
@@ -49,20 +49,12 @@
         android:id="@+id/onboardingTwoFragment"
         android:name="es.travelworld.traveling.onboarding.OnboardingTwoFragment"
         android:label="onboarding_two_fragment"
-        tools:layout="@layout/onboarding_two_fragment" >
-        <action
-            android:id="@+id/action_onboardingTwoFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/onboarding_two_fragment" />
     <fragment
         android:id="@+id/onboardingThreeFragment"
         android:name="es.travelworld.traveling.onboarding.OnboardingThreeFragment"
         android:label="onboarding_three_fragment"
-        tools:layout="@layout/onboarding_three_fragment" >
-        <action
-            android:id="@+id/action_onboardingThreeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/onboarding_three_fragment" />
     <fragment
         android:id="@+id/homeTabCeroFragment"
         android:name="es.travelworld.traveling.home.HomeTabCeroFragment"
@@ -83,4 +75,13 @@
         android:name="es.travelworld.traveling.home.HomeTabThreeFragment"
         android:label="home_tab_three_fragment"
         tools:layout="@layout/home_tab_three_fragment" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="es.travelworld.traveling.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

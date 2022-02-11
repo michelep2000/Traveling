@@ -39,10 +39,7 @@ public class OnboardingTwoFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.nextBtn.setOnClickListener(view -> {
-            System.out.println("Inside");
-            MainActivity.next();
-        });
-        binding.skipBtn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingTwoFragment_to_loginFragment));
+        binding.nextBtn.setOnClickListener(view -> OnboardingFragment.next());
+        binding.skipBtn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingFragment_to_loginFragment));
     }
 }

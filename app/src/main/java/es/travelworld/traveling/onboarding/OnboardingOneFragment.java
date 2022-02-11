@@ -36,6 +36,6 @@ public class OnboardingOneFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.textViewNext.setOnClickListener(view -> MainActivity.next());
+        binding.textViewNext.setOnClickListener(view -> OnboardingFragment.next());
     }
 }
