@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:flow_wrapMode="none"
-    tools:context=".LoginFragment">
+    tools:context=".login.LoginFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageViewNomadsCity"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_home"
         android:text="@string/login"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,9 +41,9 @@
         app:boxCornerRadiusBottomStart="5dp"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
-        app:boxStrokeColor="#000000"
+        app:boxStrokeColor="@color/black"
         app:errorEnabled="true"
-        app:boxStrokeErrorColor="#000000"
+        app:boxStrokeErrorColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView">
@@ -67,9 +67,9 @@
         app:boxCornerRadiusBottomStart="5dp"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
-        app:boxStrokeColor="#000000"
+        app:boxStrokeColor="@color/black"
         app:errorEnabled="true"
-        app:boxStrokeErrorColor="#000000"
+        app:boxStrokeErrorColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlinedTextField1">
@@ -129,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/get_new"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/materialTextView2"
@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_new"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/materialTextView3"

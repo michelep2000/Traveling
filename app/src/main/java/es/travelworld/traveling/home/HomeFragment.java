@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import es.travelworld.traveling.PageAdapterHome;
 import es.travelworld.traveling.R;
 import es.travelworld.traveling.databinding.HomeFragmentBinding;
 

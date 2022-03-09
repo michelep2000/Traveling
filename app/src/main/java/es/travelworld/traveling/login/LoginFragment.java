@@ -1,4 +1,4 @@
-package es.travelworld.traveling;
+package es.travelworld.traveling.login;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import es.travelworld.traveling.R;
 import es.travelworld.traveling.databinding.LoginFragmentBinding;
 
 public class LoginFragment extends Fragment {

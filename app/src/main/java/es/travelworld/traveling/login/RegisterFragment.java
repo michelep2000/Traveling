@@ -1,4 +1,4 @@
-package es.travelworld.traveling;
+package es.travelworld.traveling.login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
+import es.travelworld.traveling.R;
 import es.travelworld.traveling.databinding.RegisterFragmentBinding;
 
 public class RegisterFragment extends Fragment {

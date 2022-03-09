@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -19,6 +20,7 @@ import es.travelworld.traveling.databinding.OnboardingTwoFragmentBinding;
 public class OnboardingTwoFragment extends Fragment {
 
     private OnboardingTwoFragmentBinding binding;
+    private OnboardingViewModel onboardingModel;
 
     public static OnboardingTwoFragment newInstance() {
         return new OnboardingTwoFragment();
@@ -28,6 +30,7 @@ public class OnboardingTwoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = OnboardingTwoFragmentBinding.inflate(inflater, container, false);
+        onboardingModel = new ViewModelProvider(requireActivity()).get(OnboardingViewModel.class);
         return binding.getRoot();
     }
 
@@ -39,7 +42,7 @@ public class OnboardingTwoFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.nextBtn.setOnClickListener(view -> OnboardingFragment.next());
+        binding.nextBtn.setOnClickListener(view -> onboardingModel.getViewPager().observe(getViewLifecycleOwner(), viewPager2 -> onboardingModel.next(viewPager2)));
         binding.skipBtn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_onboardingFragment_to_loginFragment));
     }
 }

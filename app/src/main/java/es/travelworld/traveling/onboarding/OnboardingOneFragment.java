@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import es.travelworld.traveling.MainActivity;
 import es.travelworld.traveling.databinding.OnboardingOneFragmentBinding;
 
@@ -15,6 +17,7 @@ import es.travelworld.traveling.databinding.OnboardingOneFragmentBinding;
 public class OnboardingOneFragment extends Fragment {
 
     private OnboardingOneFragmentBinding binding;
+    private OnboardingViewModel onboardingModel;
 
 
     public static OnboardingOneFragment newInstance() {
@@ -26,6 +29,7 @@ public class OnboardingOneFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = OnboardingOneFragmentBinding.inflate(inflater, container, false);
+        onboardingModel = new ViewModelProvider(requireActivity()).get(OnboardingViewModel.class);
         return binding.getRoot();
     }
 
@@ -36,6 +40,6 @@ public class OnboardingOneFragment extends Fragment {
     }
 
     private void setListeners() {
-        binding.textViewNext.setOnClickListener(view -> OnboardingFragment.next());
+        binding.textViewNext.setOnClickListener(view -> onboardingModel.getViewPager().observe(getViewLifecycleOwner(), viewPager2 -> onboardingModel.next(viewPager2)));
     }
 }

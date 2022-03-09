@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="es.travelworld.traveling.LoginFragment"
+        android:name="es.travelworld.traveling.login.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="es.travelworld.traveling.RegisterFragment"
+        android:name="es.travelworld.traveling.login.RegisterFragment"
         android:label="register_fragment"
         tools:layout="@layout/register_fragment" >
         <action

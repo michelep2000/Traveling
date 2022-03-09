@@ -17,7 +17,7 @@
         android:layout_marginHorizontal="@dimen/margin_horizontal_main"
         android:text="Find the Perfect Roommate"
         android:textAlignment="gravity"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
