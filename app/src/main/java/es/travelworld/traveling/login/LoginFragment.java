@@ -94,7 +94,7 @@ public class LoginFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString("username", registerUsername);
         args.putString("password", registerPassword);
-        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment, args);
+        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_nav_main, args);
     }
 
     private void setTextViewListeners() {
