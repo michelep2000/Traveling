@@ -56,5 +56,8 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_navigation_host">NavigationHost</string>
     <string name="find_your_match">Find Your Match!</string>
+    <string name="exitAppDescription">No puede continuar usando la app, tiene que salir</string>
+    <string name="info">Informacion</string>
+    <string name="exit">salir</string>
 
 </resources>

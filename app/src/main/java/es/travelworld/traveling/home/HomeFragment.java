@@ -1,6 +1,8 @@
 package es.travelworld.traveling.home;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -19,12 +24,20 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import es.travelworld.traveling.R;
 import es.travelworld.traveling.databinding.HomeFragmentBinding;
+import es.travelworld.traveling.utils.MyDialog;
 
 public class HomeFragment extends Fragment {
 
     private HomeFragmentBinding binding;
+    ActivityResultLauncher<String[]> requestPermissionLauncher;
+    private boolean isFineLocationPermissionGranted = false;
+    private boolean isCoarseLocationPermissionGranted = false;
 
 
     @Override
@@ -39,11 +52,60 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        requestPermissionLauncher =
+                registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+
+                    if(result.get(Manifest.permission.ACCESS_FINE_LOCATION) != null){
+                        isFineLocationPermissionGranted = result.get(Manifest.permission.ACCESS_FINE_LOCATION);
+                    }
+                    if(result.get(Manifest.permission.ACCESS_COARSE_LOCATION) != null){
+                        isCoarseLocationPermissionGranted = result.get(Manifest.permission.ACCESS_COARSE_LOCATION);
+                    }
+
+
+                    if(!isFineLocationPermissionGranted && !isCoarseLocationPermissionGranted){
+                        MyDialog myDialog = new MyDialog();
+                        myDialog.show(getParentFragmentManager(), "Permission denied dialog ");
+                    }
+
+                });
+
+        requestAppPermissions();
+
         getRegisterArgs();
         setListeners();
         setToolBar(this);
         setTabBarLayout();
     }
+
+
+    private void requestAppPermissions() {
+
+        isFineLocationPermissionGranted = ContextCompat.checkSelfPermission(
+                requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED;
+
+        isCoarseLocationPermissionGranted = ContextCompat.checkSelfPermission(
+                requireContext(), Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED;
+
+        List<String> deniedPermissions = new ArrayList<String>();
+
+        if (!isFineLocationPermissionGranted) {
+            deniedPermissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if (!isCoarseLocationPermissionGranted) {
+            deniedPermissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+
+
+        if (!deniedPermissions.isEmpty()) {
+            requestPermissionLauncher.launch(deniedPermissions.toArray(new String[0]));
+        }
+
+    }
+
 
     private void setTabBarLayout() {
         PageAdapterHome adapterHome = new PageAdapterHome(getActivity());
