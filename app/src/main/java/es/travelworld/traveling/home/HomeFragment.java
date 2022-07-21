@@ -1,10 +1,16 @@
 package es.travelworld.traveling.home;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +21,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -38,6 +46,8 @@ public class HomeFragment extends Fragment {
     ActivityResultLauncher<String[]> requestPermissionLauncher;
     private boolean isFineLocationPermissionGranted = false;
     private boolean isCoarseLocationPermissionGranted = false;
+    private final String CHANNEL_ID = "user_notifications";
+    private final int NOTIFICATION_ID = 1;
 
 
     @Override
@@ -72,8 +82,8 @@ public class HomeFragment extends Fragment {
                 });
 
         requestAppPermissions();
-
         getRegisterArgs();
+        displayNotification();
         setListeners();
         setToolBar(this);
         setTabBarLayout();
@@ -104,6 +114,42 @@ public class HomeFragment extends Fragment {
             requestPermissionLauncher.launch(deniedPermissions.toArray(new String[0]));
         }
 
+    }
+
+    public void displayNotification() {
+
+        Bundle args = getArguments();
+        if (args == null) return;
+
+        String loginUsername = args.getString("username");
+
+        createNotificationChannel();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.round_face_black_36dp);
+        builder.setContentTitle(getString(R.string.welcome) + loginUsername);
+        builder.setContentText(getString(R.string.notification_description));
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        Bitmap busBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bus);
+        builder.setLargeIcon(busBitmap);
+        builder.setStyle(new NotificationCompat.BigPictureStyle()
+                .bigPicture(busBitmap)
+                .bigLargeIcon(null));
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(requireContext());
+        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "User Notifications";
+            String description = "Include all the User notifications";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+            notificationChannel.setDescription(description);
+            NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
     }
 
 

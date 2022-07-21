@@ -59,5 +59,7 @@
     <string name="exitAppDescription">No puede continuar usando la app, tiene que salir</string>
     <string name="info">Informacion</string>
     <string name="exit">salir</string>
+    <string name="notification_description">Nos alegra verte en este paraíso.</string>
+    <string name="welcome">\"Bienvenido \"</string>
 
 </resources>

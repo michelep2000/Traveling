@@ -1,7 +1,14 @@
 package es.travelworld.traveling.login;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +18,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -24,7 +33,6 @@ public class LoginFragment extends Fragment {
     private LoginFragmentBinding binding;
     private String registerUsername;
     private String registerPassword;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -68,8 +76,6 @@ public class LoginFragment extends Fragment {
 
         registerUsername = args.getString("username");
         registerPassword = args.getString("password");
-
-
     }
 
     private void setListeners() {
@@ -77,10 +83,12 @@ public class LoginFragment extends Fragment {
         binding.materialTextView3Btn.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment));
 
         binding.loginButton.setOnClickListener(view -> {
-            if (isCorrectAuth(false)) setArgumentsTuNavigate(view);
-            else {
+            if (isCorrectAuth(false)) {
+                setArgumentsTuNavigate(view);
+            } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage(R.string.wrong_auth_dialog_text).setPositiveButton(R.string.entendido, (dialog, id)->{}).show();
+                builder.setMessage(R.string.wrong_auth_dialog_text).setPositiveButton(R.string.entendido, (dialog, id) -> {
+                }).show();
 
             }
 
