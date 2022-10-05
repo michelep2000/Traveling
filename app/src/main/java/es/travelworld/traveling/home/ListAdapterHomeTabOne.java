@@ -1,10 +1,6 @@
 package es.travelworld.traveling.home;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.BlendMode;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +20,7 @@ import java.util.List;
 import es.travelworld.traveling.R;
 import es.travelworld.traveling.models.CarItem;
 
-public class ListAdapterHomeTabOne extends RecyclerView.Adapter<ListAdapterHomeTabOne.ViewHolder> {
+public class ListAdapterHomeTabOne extends RecyclerView.Adapter<ListAdapterHomeTabOne.ViewHolderTabOne> {
 
     private List<CarItem> cars;
 
@@ -34,13 +30,13 @@ public class ListAdapterHomeTabOne extends RecyclerView.Adapter<ListAdapterHomeT
 
     @NonNull
     @Override
-    public ListAdapterHomeTabOne.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ListAdapterHomeTabOne.ViewHolderTabOne onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.car_item, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolderTabOne(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListAdapterHomeTabOne.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListAdapterHomeTabOne.ViewHolderTabOne holder, int position) {
         holder.bindData(cars.get(position));
     }
 
@@ -53,13 +49,13 @@ public class ListAdapterHomeTabOne extends RecyclerView.Adapter<ListAdapterHomeT
         this.cars = cars;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolderTabOne extends RecyclerView.ViewHolder implements View.OnClickListener {
         ShapeableImageView image;
         MaterialTextView name, price;
         ConstraintLayout constraintLayout;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolderTabOne(@NonNull View itemView) {
             super(itemView);
 
             itemView.setOnClickListener(this);

@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/homeTabCeroFragment"
-        android:name="es.travelworld.traveling.home.HomeTabCeroFragment"
+        android:name="es.travelworld.traveling.home.homeTabZero.HomeTabZeroFragment"
         android:label="home_tab_cero_fragment"
-        tools:layout="@layout/home_tab_cero_fragment" />
+        tools:layout="@layout/home_tab_zero_fragment" />
     <fragment
         android:id="@+id/homeTabOneFragment"
         android:name="es.travelworld.traveling.home.HomeTabOneFragment"

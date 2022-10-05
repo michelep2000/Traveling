@@ -61,5 +61,11 @@
     <string name="exit">salir</string>
     <string name="notification_description">Nos alegra verte en este paraíso.</string>
     <string name="welcome">\"Bienvenido \"</string>
+    <string name="old_price">150$</string>
+    <string name="price">100$</string>
+    <string name="locality">Barcelona</string>
+    <string name="address">La Rambla, La 111</string>
+    <string name="hotel_name">Le Meridien Barcelona</string>
+    <string name="hotel_rating">5</string>
 
 </resources>

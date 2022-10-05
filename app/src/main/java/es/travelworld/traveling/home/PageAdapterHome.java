@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import es.travelworld.traveling.home.HomeTabCeroFragment;
-import es.travelworld.traveling.home.HomeTabOneFragment;
-import es.travelworld.traveling.home.HomeTabThreeFragment;
-import es.travelworld.traveling.home.HomeTabTwoFragment;
+import es.travelworld.traveling.home.homeTabZero.HomeTabZeroFragment;
 
 
 public class PageAdapterHome extends FragmentStateAdapter {
@@ -24,7 +21,7 @@ public class PageAdapterHome extends FragmentStateAdapter {
 
         switch (position) {
             case 0:
-                fragment = HomeTabCeroFragment.newInstance(position);
+                fragment = HomeTabZeroFragment.newInstance();
                 break;
             case 1:
                 fragment = HomeTabOneFragment.newInstance(position);

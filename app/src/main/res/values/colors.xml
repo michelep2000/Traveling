@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#ffc107</color>
     <color name="grey">#B5B5B5</color>
+    <color name="red">#FF0000</color>
     <color name="toolbar">#009688</color>
     <color name="lila">#B695C0</color>
     <color name="homeTabZero">#cae2ff</color>

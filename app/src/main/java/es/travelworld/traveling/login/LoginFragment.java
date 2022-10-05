@@ -1,14 +1,6 @@
 package es.travelworld.traveling.login;
 
 import android.app.AlertDialog;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,12 +10,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import es.travelworld.traveling.R;
 import es.travelworld.traveling.databinding.LoginFragmentBinding;
@@ -33,11 +26,13 @@ public class LoginFragment extends Fragment {
     private LoginFragmentBinding binding;
     private String registerUsername;
     private String registerPassword;
+    private LoginViewModel loginViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = LoginFragmentBinding.inflate(inflater, container, false);
+        loginViewModel = new ViewModelProvider(this, new LoginViewModel.Factory(new LoginRepository(), this.getActivity().getApplicationContext())).get(LoginViewModel.class);
         return binding.getRoot();
     }
 
@@ -57,17 +52,26 @@ public class LoginFragment extends Fragment {
     private boolean isCorrectAuth(boolean isToHandleButton) {
         Editable username = binding.usernameInput.getText();
         Editable password = binding.passwordInput.getText();
+        AtomicBoolean isCorrect = new AtomicBoolean(false);
 
         if (username == null || password == null) return false;
 
         binding.loginButton.setEnabled((username.length() > 0 && password.length() > 0));
 
-        boolean isCorrect = username.toString().equals(registerUsername) && password.toString().equals(registerPassword);
+        loginViewModel.login(registerUsername, registerPassword);
 
-        if (!isCorrect && !isToHandleButton)
-            binding.usernameInput.setError(getString(R.string.error_login));
+        loginViewModel.getUser().observe(getViewLifecycleOwner(), data -> {
+            if (data != null) {
+                isCorrect.set(true);
+                registerUsername = username.toString();
+                registerPassword = password.toString();
+            } else if(data == null && !isToHandleButton) {
+                binding.usernameInput.setError(getString(R.string.error_login));
+                isCorrect.set(false);
+            }
+        });
 
-        return isCorrect;
+        return isCorrect.get();
     }
 
     private void getRegisterArgs() {
@@ -103,6 +107,8 @@ public class LoginFragment extends Fragment {
         args.putString("username", registerUsername);
         args.putString("password", registerPassword);
         Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_nav_main, args);
+
+
     }
 
     private void setTextViewListeners() {

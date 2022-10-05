@@ -47,7 +47,5 @@ public class HomeTabTwoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.homeTabTwo.setText(String.valueOf(position));
     }
 }
